@@ -1,0 +1,25 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "HOOD Motors — Red header typography and iconography",
+  "requirements": [
+    {
+      "id": "REQ-18",
+      "summary": "Make all visible header text and icons render in red across desktop header and mobile sheet menu while preserving existing scroll/nav behavior.",
+      "acceptanceCriteria": [
+        "On desktop, the HOOD wordmark and all nav link labels render in red in the sticky header.",
+        "The “Book Test Drive” CTA label renders in red (not black/white) and remains readable against its background.",
+        "On mobile, the hamburger/menu trigger icon renders in red.",
+        "In the mobile sheet menu, the HOOD wordmark and all nav link labels render in red.",
+        "Header navigation/scroll behavior and the mobile sheet open/close behavior continue to work as before."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Adjust Tailwind classes in the existing header to render all header typography and iconography in red (use existing accent/red styling) including: desktop wordmark, desktop nav link labels, “Book Test Drive” label, mobile menu trigger icon, and mobile sheet menu wordmark + nav links, while keeping the current scroll-to-section and Sheet open/close behavior unchanged and without editing any files under frontend/src/components/ui. Continue composing the existing shadcn-ui Button and Sheet components for the CTA and mobile menu; verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

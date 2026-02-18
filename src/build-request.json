@@ -1,0 +1,40 @@
+{
+  "kind": "build_request",
+  "title": "Make all header text red",
+  "projectName": "HOOD Motors",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-18",
+      "text": "Update the global header so that all visible header typography and iconography renders in red, including: the HOOD wordmark, desktop navigation link labels, the “Book Test Drive” CTA label, the mobile menu trigger icon, and the mobile sheet menu wordmark + nav links.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages-4"
+        ],
+        "quotes": [
+          "write all the header with red"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On desktop, the HOOD wordmark and all nav link labels render in red in the sticky header.",
+        "The “Book Test Drive” CTA label renders in red (not black/white) and remains readable against its background.",
+        "On mobile, the hamburger/menu trigger icon renders in red.",
+        "In the mobile sheet menu, the HOOD wordmark and all nav link labels render in red.",
+        "Header navigation/scroll behavior and the mobile sheet open/close behavior continue to work as before."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend files under frontend/src/components/ui must not be edited directly; compose existing components instead.",
+    "Keep the existing header navigation structure and scroll-to-section behavior intact (no route changes)."
+  ],
+  "nonGoals": [
+    "Do not change the site-wide theme tokens or the color palette outside of the header.",
+    "Do not add new pages, sections, or backend functionality."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

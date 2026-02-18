@@ -1,0 +1,23 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-global-header-so-that-all-visible-header-typography-and-iconography-renders-in-red-including-the-hood-wordmark-desktop-navigation-link-labels-the-book-test-drive-cta-label-the-mobile-menu-trigger-icon-and-the-mobile-sheet-menu-wordmark-nav-links",
+      "featureTitle": "Update the global header so that all visible header typography and iconography renders in red, including: the HOOD wordmark, desktop navigation link labels, the “Book Test Drive” CTA label, the mobile menu trigger icon, and the mobile sheet menu wordmark + nav links.",
+      "files": [
+        "frontend/src/components/layout/Header.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

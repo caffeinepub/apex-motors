@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 17,
+  "summary": "Website project for a car brand.",
+  "architectural_notes": [
+    "Typography should use the user-provided ROG font file (not Google Fonts); include it as a local webfont (e.g., woff2) and apply via global theme styles.",
+    "Site theme tokens (background/surfaces/text/accent/borders) should be derived from the user-provided color palette and applied consistently across all components/sections.",
+    "Per user request, remove the logo from the header/branding area (do not display the logo asset)."
+  ],
+  "known_issues": [
+    "Build/deploy failing with a configuration error; requires Caffeine team assistance or environment/config fix before changes can be verified in deployment."
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-marketing-website-for-a-car-brand-with-core-pages-sections-home-hero-value-proposition-models-model-lineup-cards-technology-features-about-the-brand-and-contact",
+      "title": "Create a responsive marketing website for a car brand with core pages/sections: Home (hero + value proposition), Models (model lineup cards), Technology/Features, About the Brand, and Contact.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-coherent-visual-theme-suitable-for-a-modern-automotive-brand-e-g-high-contrast-dark-palette-with-an-accent-color-strong-typography-generous-spacing-premium-feel-and-apply-it-consistently-across-all-pages-sections",
+      "title": "Implement a coherent visual theme suitable for a modern automotive brand (e.g., high-contrast dark palette with an accent color, strong typography, generous spacing, premium feel) and apply it consistently across all pages/sections.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-global-header-with-brand-logo-primary-navigation-and-a-prominent-call-to-action-button-e-g-book-a-test-drive-or-explore-models-plus-a-footer-with-basic-brand-links-and-social-placeholders",
+      "title": "Add a global header with brand logo, primary navigation, and a prominent call-to-action button (e.g., “Book a Test Drive” or “Explore Models”), plus a footer with basic brand links and social placeholders.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-contact-section-page-with-a-form-name-email-message-including-client-side-validation-and-a-clear-success-state-after-submission-no-external-email-saas-integrations",
+      "title": "Create a Contact section/page with a form (name, email, message) including client-side validation and a clear success state after submission (no external email/SaaS integrations).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-image-assets-for-the-car-brand-site-logo-and-hero-section-visuals-and-use-them-in-the-ui-from-frontend-public-assets-generated",
+      "title": "Add generated static image assets for the car brand site (logo and hero/section visuals) and use them in the UI from frontend/public/assets/generated.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-brand-name-text-apex-motors-with-hood-across-all-user-facing-site-content-including-the-browser-title-and-all-visible-marketing-copy-where-the-company-name-is-mentioned-do-not-change-unrelated-model-names-unless-they-explicitly-refer-to-the-company-name-string-apex-motors",
+      "title": "Replace the brand name text \"Apex Motors\" with \"HOOD\" across all user-facing site content, including the browser title and all visible marketing copy where the company name is mentioned (do not change unrelated model names unless they explicitly refer to the company name string \"Apex Motors\").",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-header-and-footer-logo-usage-to-match-the-new-brand-name-hood-by-switching-image-alt-text-to-hood-and-updating-the-logo-asset-reference-to-the-new-generated-hood-wordmark-logo",
+      "title": "Update the header and footer logo usage to match the new brand name \"HOOD\" by switching image alt text to \"HOOD\" and updating the logo asset reference to the new generated HOOD wordmark logo.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-any-tracking-identifier-strings-that-embed-the-old-brand-slug-apex-motors-e-g-footer-referral-app-identifier-fallback-to-use-a-hood-appropriate-value",
+      "title": "Update any tracking/identifier strings that embed the old brand slug \"apex-motors\" (e.g., footer referral/app identifier fallback) to use a HOOD-appropriate value.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-s-visual-theme-to-use-a-black-and-red-color-palette-black-near-black-as-the-primary-background-surfaces-red-as-the-primary-accent-and-apply-it-consistently-across-all-sections-and-components-that-use-theme-tokens-e-g-accent-ring-primary-borders",
+      "title": "Update the site’s visual theme to use a black-and-red color palette (black/near-black as the primary background/surfaces, red as the primary accent) and apply it consistently across all sections and components that use theme tokens (e.g., accent, ring, primary, borders).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-homepage-hero-headline-text-the-future-of-performance-with-for-those-who-dare-in-the-homehero-section",
+      "title": "Replace the homepage hero headline text \"The Future of Performance\" with \"For those who dare\" in the HomeHero section.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-a-static-logo-asset-from-the-user-uploaded-image-image-1-png-and-add-it-to-the-app-s-static-assets-under-frontend-public-assets-generated-so-it-can-be-used-in-the-ui",
+      "title": "Generate a static logo asset from the user-uploaded image (image-1.png) and add it to the app’s static assets under frontend/public/assets/generated so it can be used in the UI.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-global-header-to-display-the-new-uploaded-logo-asset-at-the-top-of-the-website-replacing-the-current-assets-generated-hood-logo-dim-600x200-png-reference-while-preserving-existing-navigation-and-cta-behavior",
+      "title": "Update the global header to display the new uploaded logo asset at the top of the website (replacing the current /assets/generated/hood-logo.dim_600x200.png reference) while preserving existing navigation and CTA behavior.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-wide-theme-tokens-styles-so-the-overall-website-design-matches-the-uploaded-logo-s-color-palette-red-black-including-backgrounds-surfaces-accents-borders-rings-and-muted-text-while-keeping-readability-contrast-across-all-sections-home-models-technology-about-contact-header-footer",
+      "title": "Update the site-wide theme tokens/styles so the overall website design matches the uploaded logo’s color palette (red + black), including backgrounds/surfaces, accents, borders/rings, and muted text, while keeping readability/contrast across all sections (Home, Models, Technology, About, Contact, Header, Footer).",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-global-header-brand-area-so-the-logo-is-displayed-in-the-header-and-the-text-hood-is-rendered-in-red-next-to-or-as-part-of-the-header-branding-on-both-desktop-and-mobile-header-layouts",
+      "title": "Update the global header brand area so the logo is displayed in the header and the text \"HOOD\" is rendered in red next to (or as part of) the header branding on both desktop and mobile header layouts.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-red-colored-variants-of-the-existing-hood-logo-images-and-update-the-site-header-and-footer-to-use-the-red-variants-so-the-logo-itself-renders-in-red-not-only-the-adjacent-hood-text",
+      "title": "Create red-colored variants of the existing HOOD logo images and update the site header and footer to use the red variants so the logo itself renders in red (not only the adjacent \"HOOD\" text).",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-brand-logo-images-from-the-global-header-brand-area-while-keeping-the-existing-navigation-and-cta-behavior-intact-the-brand-area-should-no-longer-render-the-emblem-image-but-should-remain-clickable-to-scroll-to-the-home-section",
+      "title": "Remove the brand logo images from the global header brand area while keeping the existing navigation and CTA behavior intact (the brand area should no longer render the emblem image, but should remain clickable to scroll to the Home section).",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-brand-logo-image-from-the-footer-brand-block-while-keeping-the-rest-of-the-footer-content-tagline-quick-links-social-links-and-caffeine-ai-attribution-unchanged",
+      "title": "Remove the brand logo image from the footer brand block while keeping the rest of the footer content (tagline, quick links, social links, and caffeine.ai attribution) unchanged.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-global-header-so-that-all-visible-header-typography-and-iconography-renders-in-red-including-the-hood-wordmark-desktop-navigation-link-labels-the-book-test-drive-cta-label-the-mobile-menu-trigger-icon-and-the-mobile-sheet-menu-wordmark-nav-links",
+      "title": "Update the global header so that all visible header typography and iconography renders in red, including: the HOOD wordmark, desktop navigation link labels, the “Book Test Drive” CTA label, the mobile menu trigger icon, and the mobile sheet menu wordmark + nav links.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a website for a car brand",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Update site visual theme/colors to black and red",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Replace homepage hero tagline text from \"the future of Performance\" to \"for those who dare\"",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Apply the provided ROG font across the website typography",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Update site styling so the header shows the provided logo at the top",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Update the entire site design to match the provided color palette (including black background)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Update header branding so the \"HOOD\" text/wordmark is red",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Update the logo to render in red (red logo variant)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Remove the logo from the site header/branding",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Make the entire header render in red (all header text/styling)",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Apex Motors",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
