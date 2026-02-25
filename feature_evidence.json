@@ -1,0 +1,23 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-expand-the-herocarousel-component-to-occupy-the-full-viewport-width-and-height-100vw-100vh-ensuring-it-fills-the-entire-screen-on-a-laptop-without-scrolling-the-carousel-container-slide-wrappers-and-any-inner-content-containers-should-all-stretch-to-fill-the-full-viewport-dimensions",
+      "featureTitle": "Expand the HeroCarousel component to occupy the full viewport width and height (100vw × 100vh), ensuring it fills the entire screen on a laptop without scrolling. The carousel container, slide wrappers, and any inner content containers should all stretch to fill the full viewport dimensions.",
+      "files": [
+        "frontend/src/components/carousel/HeroCarousel.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

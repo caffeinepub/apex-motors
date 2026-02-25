@@ -1,0 +1,18 @@
+{
+  "frontend/src/App.tsx": "Main application component composing HeroCarousel, HomeHero, and all section components within the SiteLayout wrapper (unchanged structure).",
+  "frontend/src/components/layout/SiteLayout.tsx": "Layout wrapper component that enforces dark theme class and provides consistent structure with Header, main content area, and Footer across the entire site.",
+  "frontend/src/components/layout/Header.tsx": "Responsive header component with \"HOOD\" text wordmark, desktop navigation, mobile sheet menu, and prominent red CTA button for booking test drives; all text elements, navigation links, menu icon, and CTA label now render in red (accent color).",
+  "frontend/src/components/layout/Footer.tsx": "Footer component with \"HOOD\" text branding (logo image removed), navigation links, social media icons, and attribution with UTM tracking using \"hood\" as the app identifier fallback.",
+  "frontend/src/components/sections/HomeHero.tsx": "Hero section with full-screen background image, headline \"For those who dare\", value proposition mentioning HOOD, and dual CTAs for exploring models and booking test drives.",
+  "frontend/src/components/sections/ModelsSection.tsx": "Models showcase section displaying three car models in premium cards with images, descriptions, and detailed specifications.",
+  "frontend/src/components/sections/TechnologySection.tsx": "Technology features section highlighting four key innovation areas with icons and descriptions in a responsive grid.",
+  "frontend/src/components/sections/AboutSection.tsx": "About section presenting HOOD brand mission, values, and key statistics in a two-column layout with visual emphasis.",
+  "frontend/src/components/sections/ContactSection.tsx": "Contact section with contact information, showroom hours, and integrated contact form in a two-column responsive layout.",
+  "frontend/src/components/contact/ContactForm.tsx": "Contact form component with name, email, and message fields (placeholder updated to mention HOOD), client-side validation, loading states, and success confirmation.",
+  "frontend/src/content/models.ts": "Static data file defining the three Apex Motors vehicle models with specifications, images, and descriptions.",
+  "frontend/src/index.css": "Global styles with custom OKLCH color system implementing a pure black background (#000000) and vibrant red accent color (hue 12°) for both light and dark modes, matching the uploaded logo palette.",
+  "frontend/tailwind.config.js": "Tailwind configuration with Inter font family, premium shadows, and extended design tokens matching the automotive brand aesthetic.",
+  "frontend/src/hooks/useQueries.ts": "Empty hooks file as backend has no methods; all data is static and client-side.",
+  "frontend/index.html": "HTML entry point with document title set to \"HOOD\".",
+  "frontend/src/components/carousel/HeroCarousel.tsx": "Full-viewport carousel component (w-screen h-screen with -mt-20 to offset the sticky header) displaying 3 auto-rotating slides — two futuristic car image slides and one promotional text slide — with navigation arrows, dot indicators, and 5-second auto-advance."
+}

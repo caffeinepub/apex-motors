@@ -1,0 +1,30 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Expand carousel to full viewport width and height",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Expand the HeroCarousel component to occupy the full viewport width and height (100vw × 100vh), ensuring it fills the entire screen on a laptop without scrolling",
+      "acceptanceCriteria": [
+        "The HeroCarousel occupies 100vw × 100vh on page load with no overflow or clipping.",
+        "All three slides stretch to fill the full viewport.",
+        "Navigation arrows and dot indicators remain visible and accessible at full-screen dimensions.",
+        "No vertical or horizontal scrollbars appear due to the carousel itself.",
+        "The carousel looks correct on a standard laptop screen (e.g., 1280×800 to 1920×1080)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/carousel/HeroCarousel.tsx",
+          "operation": "modify",
+          "description": "Modify the HeroCarousel component container to use w-screen h-screen (100vw × 100vh) dimensions. Update the Carousel root element and CarouselContent wrapper to stretch to full viewport height. Ensure all three slide containers (CarouselItem elements) fill the entire viewport by applying h-full and appropriate flex/grid properties. Preserve the existing auto-rotate behavior (5-second interval), navigation arrows (CarouselPrevious/CarouselNext), and dot indicators. Verify that the two futuristic car image slides (frontend/public/assets/generated/futuristic-car-1.dim_1920x1080.png and frontend/public/assets/generated/futuristic-car-2.dim_1920x1080.png) and the promotional text slide all scale appropriately to fill the full screen without clipping or overflow. Ensure navigation controls remain visible and accessible at full-screen dimensions."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Remove any container constraints or padding around the HeroCarousel component that would prevent it from reaching full viewport dimensions. Ensure the carousel is positioned at the top of the layout without margin offsets. Verify that the SiteLayout wrapper and any parent containers do not clip or constrain the full-screen carousel. Preserve the existing component order: HeroCarousel, HomeHero, and all section components."
+        }
+      ]
+    }
+  ]
+}

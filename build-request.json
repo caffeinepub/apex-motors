@@ -1,0 +1,44 @@
+{
+  "kind": "build_request",
+  "title": "Expand carousel to full viewport width and height",
+  "projectName": "HOOD",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Expand the HeroCarousel component to occupy the full viewport width and height (100vw × 100vh), ensuring it fills the entire screen on a laptop without scrolling. The carousel container, slide wrappers, and any inner content containers should all stretch to fill the full viewport dimensions.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-13",
+          "msg-15",
+          "msg-17"
+        ],
+        "quotes": [
+          "extend the caraosel a bit larger such that it fits my laptop's full screen",
+          "Making the carousel full-screen now — expanding it to fill the full viewport width and height on your laptop!"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The HeroCarousel occupies 100vw × 100vh on page load with no overflow or clipping.",
+        "All three slides stretch to fill the full viewport.",
+        "Navigation arrows and dot indicators remain visible and accessible at full-screen dimensions.",
+        "No vertical or horizontal scrollbars appear due to the carousel itself.",
+        "The carousel looks correct on a standard laptop screen (e.g., 1280×800 to 1920×1080)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui.",
+    "Preserve the existing 3-slide content, auto-rotate behavior, navigation arrows, and dot indicators."
+  ],
+  "nonGoals": [
+    "Changing carousel content, images, or slide copy.",
+    "Adding new slides or removing existing ones.",
+    "Modifying backend logic."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
