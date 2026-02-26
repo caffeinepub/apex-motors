@@ -1,25 +1,50 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { useNavigate, useRouterState } from '@tanstack/react-router';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const routerState = useRouterState();
+  const isModelsPage = routerState.location.pathname === '/models';
 
   const scrollToSection = (id: string) => {
+    setIsOpen(false);
+    if (isModelsPage) {
+      navigate({ to: '/' }).then(() => {
+        setTimeout(() => {
+          const element = document.getElementById(id);
+          if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      });
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setIsOpen(false);
     }
   };
 
   const navLinks = [
-    { label: 'Home', id: 'home' },
-    { label: 'Models', id: 'models' },
-    { label: 'Technology', id: 'technology' },
-    { label: 'About', id: 'about' },
-    { label: 'Contact', id: 'contact' },
+    {
+      label: 'Home',
+      action: () => {
+        setIsOpen(false);
+        navigate({ to: '/' });
+      },
+    },
+    {
+      label: 'Models',
+      action: () => {
+        setIsOpen(false);
+        navigate({ to: '/models' });
+      },
+    },
+    { label: 'Technology', action: () => scrollToSection('technology') },
+    { label: 'About', action: () => scrollToSection('about') },
+    { label: 'Contact', action: () => scrollToSection('contact') },
   ];
 
   return (
@@ -28,7 +53,7 @@ export function Header() {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <button
-            onClick={() => scrollToSection('home')}
+            onClick={() => navigate({ to: '/' })}
             className="transition-opacity hover:opacity-80"
           >
             <span className="text-2xl font-bold text-accent tracking-tight">HOOD</span>
@@ -38,8 +63,8 @@ export function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
+                key={link.label}
+                onClick={link.action}
                 className="text-sm font-medium text-accent transition-opacity hover:opacity-80"
               >
                 {link.label}
@@ -73,9 +98,9 @@ export function Header() {
                 </div>
                 <nav className="flex flex-col space-y-4">
                   {navLinks.map((link) => (
-                    <SheetClose asChild key={link.id}>
+                    <SheetClose asChild key={link.label}>
                       <button
-                        onClick={() => scrollToSection(link.id)}
+                        onClick={link.action}
                         className="text-left text-lg font-medium text-accent transition-opacity hover:opacity-80"
                       >
                         {link.label}

@@ -1,36 +1,87 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-25T04:50:34.051Z",
+  "generatedAt": "2026-02-25T06:18:20.977Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 4,
+    "implemented": 4,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Expand the HeroCarousel component to occupy the full viewport width and height (100vw × 100vh), ensuring it fills the entire screen on a laptop without scrolling. The carousel container, slide wrappers, and any inner content containers should all stretch to fill the full viewport dimensions.",
+        "summary": "Add a 'Buy Now' button to each car model card (CarModelCard.tsx) that opens a full checkout modal/drawer when clicked.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/carousel/HeroCarousel.tsx",
-          "frontend/src/App.tsx"
+          "frontend/src/components/models/CarModelCard.tsx",
+          "frontend/src/components/checkout/CheckoutModal.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/carousel/HeroCarousel.tsx"
+          "frontend/src/components/models/CarModelCard.tsx",
+          "frontend/src/components/checkout/CheckoutModal.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Implement a detailed checkout flow inside the modal with three steps: (1) Select payment type — full price or booking amount (partial deposit); (2) Choose EMI plan if full price is selected (e.g., 6, 12, 24 months with calculated monthly instalment shown in INR); (3) Payment details form with card fields (card number, name on card, expiry, CVV) and a UPI ID field as an alternative. The final step shows a simulated success confirmation screen.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/checkout/CheckoutFlow.tsx",
+          "frontend/src/components/checkout/PaymentTypeStep.tsx",
+          "frontend/src/components/checkout/EMIPlanStep.tsx",
+          "frontend/src/components/checkout/PaymentDetailsStep.tsx",
+          "frontend/src/components/checkout/CheckoutSuccess.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/checkout/CheckoutFlow.tsx",
+          "frontend/src/components/checkout/PaymentTypeStep.tsx",
+          "frontend/src/components/checkout/EMIPlanStep.tsx",
+          "frontend/src/components/checkout/PaymentDetailsStep.tsx",
+          "frontend/src/components/checkout/CheckoutSuccess.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Display nearest showroom information alongside the checkout flow. Each car model should be assigned a distinct showroom in a different Indian city (e.g., Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad). Each showroom entry must include: showroom name, full address, city, and a plausible but fake Indian contact phone number (10-digit mobile starting with 9 or 8).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/checkout/ShowroomPanel.tsx",
+          "frontend/src/components/checkout/CheckoutModal.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/checkout/ShowroomPanel.tsx",
+          "frontend/src/components/checkout/CheckoutModal.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Store showroom data (name, address, city, phone) mapped to car model IDs in the frontend content layer (e.g., a new file frontend/src/content/showrooms.ts) so each car resolves to exactly one showroom.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/content/showrooms.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/content/showrooms.ts"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/carousel/HeroCarousel.tsx",
+    "frontend/src/components/checkout/CheckoutFlow.tsx",
+    "frontend/src/components/checkout/CheckoutModal.tsx",
+    "frontend/src/components/checkout/CheckoutSuccess.tsx",
+    "frontend/src/components/checkout/EMIPlanStep.tsx",
+    "frontend/src/components/checkout/PaymentDetailsStep.tsx",
+    "frontend/src/components/checkout/PaymentTypeStep.tsx",
+    "frontend/src/components/checkout/ShowroomPanel.tsx",
+    "frontend/src/components/models/CarModelCard.tsx",
+    "frontend/src/content/showrooms.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

@@ -1,28 +1,103 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Expand carousel to full viewport width and height",
+  "title": "Buy Now checkout flow with showroom details",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Expand the HeroCarousel component to occupy the full viewport width and height (100vw × 100vh), ensuring it fills the entire screen on a laptop without scrolling",
+      "summary": "Add 'Buy Now' button to CarModelCard that opens a checkout modal",
       "acceptanceCriteria": [
-        "The HeroCarousel occupies 100vw × 100vh on page load with no overflow or clipping.",
-        "All three slides stretch to fill the full viewport.",
-        "Navigation arrows and dot indicators remain visible and accessible at full-screen dimensions.",
-        "No vertical or horizontal scrollbars appear due to the carousel itself.",
-        "The carousel looks correct on a standard laptop screen (e.g., 1280×800 to 1920×1080)."
+        "Each CarModelCard displays a clearly visible 'Buy Now' button",
+        "Clicking 'Buy Now' opens the checkout modal for that specific car",
+        "The modal is dismissible (close button / click outside)"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/carousel/HeroCarousel.tsx",
+          "path": "frontend/src/components/models/CarModelCard.tsx",
           "operation": "modify",
-          "description": "Modify the HeroCarousel component container to use w-screen h-screen (100vw × 100vh) dimensions. Update the Carousel root element and CarouselContent wrapper to stretch to full viewport height. Ensure all three slide containers (CarouselItem elements) fill the entire viewport by applying h-full and appropriate flex/grid properties. Preserve the existing auto-rotate behavior (5-second interval), navigation arrows (CarouselPrevious/CarouselNext), and dot indicators. Verify that the two futuristic car image slides (frontend/public/assets/generated/futuristic-car-1.dim_1920x1080.png and frontend/public/assets/generated/futuristic-car-2.dim_1920x1080.png) and the promotional text slide all scale appropriately to fill the full screen without clipping or overflow. Ensure navigation controls remain visible and accessible at full-screen dimensions."
+          "description": "Add a 'Buy Now' button below the existing card content that triggers the checkout modal. Pass the car model data (id, name, price, image) as props to the modal component. Maintain the existing luxury gold styling for luxury category cards."
         },
         {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/components/checkout/CheckoutModal.tsx",
+          "operation": "create",
+          "description": "Create a full-screen modal/drawer component using shadcn Dialog that accepts car model data and showroom info as props. Include a close button and handle click-outside-to-dismiss. The modal will host the multi-step checkout flow and showroom details panel. Use a responsive layout with showroom info alongside checkout on desktop, stacked on mobile."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement detailed three-step checkout flow with payment type selection, EMI options, and payment form",
+      "acceptanceCriteria": [
+        "User can choose between full price payment and a fixed booking amount (e.g., ₹2,00,000 deposit)",
+        "When full price is selected, EMI options (6/12/24 months) are shown with calculated monthly amount in INR",
+        "Payment form accepts card number, cardholder name, expiry date, CVV OR a UPI ID",
+        "Submitting the form shows a success confirmation screen with order summary",
+        "No real payment is processed; all data is mock/simulated"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/checkout/CheckoutFlow.tsx",
+          "operation": "create",
+          "description": "Create a multi-step checkout component managing three steps: (1) payment type selection (full price vs booking amount), (2) EMI plan selection (conditional on full price), and (3) payment details form. Use local state to track current step, selected options, and form data. Display step indicators/progress bar. All amounts must be formatted in INR (₹). Calculate and display monthly EMI amounts based on car price and selected tenure (6/12/24 months) using simple division for mock calculation."
+        },
+        {
+          "path": "frontend/src/components/checkout/PaymentTypeStep.tsx",
+          "operation": "create",
+          "description": "Create step 1 component with radio buttons or cards to choose between 'Full Price' and 'Booking Amount'. Display the car's full price in INR and a fixed booking amount (e.g., ₹2,00,000). Include a 'Continue' button that advances to the next step based on selection."
+        },
+        {
+          "path": "frontend/src/components/checkout/EMIPlanStep.tsx",
+          "operation": "create",
+          "description": "Create step 2 component showing EMI plan options (6, 12, 24 months). For each option, display the tenure and calculated monthly instalment in INR. Use radio buttons or selectable cards. This step only renders when full price payment is selected. Include 'Back' and 'Continue' buttons."
+        },
+        {
+          "path": "frontend/src/components/checkout/PaymentDetailsStep.tsx",
+          "operation": "create",
+          "description": "Create step 3 component with a payment form containing two sections: (1) Card payment fields (card number input with 16-digit validation, cardholder name, expiry date MM/YY, CVV 3-digit field) and (2) UPI ID field as an alternative. Use client-side validation for format checks. Include a 'Pay Now' button that simulates async submission with loading state, then shows the success confirmation screen. No real payment processing."
+        },
+        {
+          "path": "frontend/src/components/checkout/CheckoutSuccess.tsx",
+          "operation": "create",
+          "description": "Create a success confirmation screen component displaying order summary with car name, selected payment type, EMI plan (if applicable), total amount paid/booking amount in INR, and a success icon/message. Include a 'Done' or 'Close' button that dismisses the modal and returns to the models page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Display nearest showroom information for each car model with distinct Indian city locations",
+      "acceptanceCriteria": [
+        "Each car card's checkout modal shows a dedicated 'Nearest Showroom' panel",
+        "The showroom panel displays name, address, city, and contact number",
+        "Different car models show different city showrooms",
+        "Contact number is a plausible-looking fake Indian mobile number",
+        "Showroom info is visible at the same time as the checkout form (e.g., side-by-side on desktop, stacked on mobile)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/checkout/ShowroomPanel.tsx",
+          "operation": "create",
+          "description": "Create a showroom information panel component that displays showroom name, full address, city, and contact phone number. Use an icon for each field (map pin for address, phone icon for contact). Format the phone number with country code (+91). Style the panel with a subtle border and padding to separate it from the checkout flow. Receives showroom data as props."
+        },
+        {
+          "path": "frontend/src/components/checkout/CheckoutModal.tsx",
           "operation": "modify",
-          "description": "Remove any container constraints or padding around the HeroCarousel component that would prevent it from reaching full viewport dimensions. Ensure the carousel is positioned at the top of the layout without margin offsets. Verify that the SiteLayout wrapper and any parent containers do not clip or constrain the full-screen carousel. Preserve the existing component order: HeroCarousel, HomeHero, and all section components."
+          "description": "Wire the ShowroomPanel component into the modal layout. Fetch the showroom data using the car model ID and pass it to ShowroomPanel. Use a responsive grid layout: side-by-side on desktop (2-column with ShowroomPanel on the right, CheckoutFlow on the left) and stacked on mobile (ShowroomPanel above CheckoutFlow)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Store showroom data mapped to car model IDs in frontend content layer",
+      "acceptanceCriteria": [
+        "A content file exports a mapping from car model ID to showroom object",
+        "All car models in carModels.ts have a corresponding showroom entry",
+        "No two cars in the same city share a showroom (variety across cities)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/content/showrooms.ts",
+          "operation": "create",
+          "description": "Define a Showroom type with fields: name (string), address (string), city (string), phone (string). Create a mapping object (Record<string, Showroom>) where keys are car model IDs from carModels.ts and values are showroom objects. Assign each car model a distinct Indian city showroom from cities like Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad, Jaipur, Chandigarh, etc. Use plausible fake 10-digit Indian mobile numbers starting with 9 or 8. Ensure variety: no two cars should share the same city or showroom. Export the mapping as a named constant and a helper function getShowroomForCar(carId: string) that returns the showroom or a default."
         }
       ]
     }

@@ -2,10 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-expand-the-herocarousel-component-to-occupy-the-full-viewport-width-and-height-100vw-100vh-ensuring-it-fills-the-entire-screen-on-a-laptop-without-scrolling-the-carousel-container-slide-wrappers-and-any-inner-content-containers-should-all-stretch-to-fill-the-full-viewport-dimensions",
-      "featureTitle": "Expand the HeroCarousel component to occupy the full viewport width and height (100vw × 100vh), ensuring it fills the entire screen on a laptop without scrolling. The carousel container, slide wrappers, and any inner content containers should all stretch to fill the full viewport dimensions.",
+      "featureId": "feature-add-a-buy-now-button-to-each-car-model-card-carmodelcard-tsx-that-opens-a-full-checkout-modal-drawer-when-clicked",
+      "featureTitle": "Add a 'Buy Now' button to each car model card (CarModelCard.tsx) that opens a full checkout modal/drawer when clicked.",
       "files": [
-        "frontend/src/components/carousel/HeroCarousel.tsx"
+        "frontend/src/components/checkout/CheckoutModal.tsx",
+        "frontend/src/components/models/CarModelCard.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,6 +17,65 @@
       ],
       "testIds": [
         "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-detailed-checkout-flow-inside-the-modal-with-three-steps-1-select-payment-type-full-price-or-booking-amount-partial-deposit-2-choose-emi-plan-if-full-price-is-selected-e-g-6-12-24-months-with-calculated-monthly-instalment-shown-in-inr-3-payment-details-form-with-card-fields-card-number-name-on-card-expiry-cvv-and-a-upi-id-field-as-an-alternative-the-final-step-shows-a-simulated-success-confirmation-screen",
+      "featureTitle": "Implement a detailed checkout flow inside the modal with three steps: (1) Select payment type — full price or booking amount (partial deposit); (2) Choose EMI plan if full price is selected (e.g., 6, 12, 24 months with calculated monthly instalment shown in INR); (3) Payment details form with card fields (card number, name on card, expiry, CVV) and a UPI ID field as an alternative. The final step shows a simulated success confirmation screen.",
+      "files": [
+        "frontend/src/components/checkout/CheckoutFlow.tsx",
+        "frontend/src/components/checkout/CheckoutSuccess.tsx",
+        "frontend/src/components/checkout/EMIPlanStep.tsx",
+        "frontend/src/components/checkout/PaymentDetailsStep.tsx",
+        "frontend/src/components/checkout/PaymentTypeStep.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-nearest-showroom-information-alongside-the-checkout-flow-each-car-model-should-be-assigned-a-distinct-showroom-in-a-different-indian-city-e-g-mumbai-delhi-bangalore-chennai-hyderabad-kolkata-pune-ahmedabad-each-showroom-entry-must-include-showroom-name-full-address-city-and-a-plausible-but-fake-indian-contact-phone-number-10-digit-mobile-starting-with-9-or-8",
+      "featureTitle": "Display nearest showroom information alongside the checkout flow. Each car model should be assigned a distinct showroom in a different Indian city (e.g., Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad). Each showroom entry must include: showroom name, full address, city, and a plausible but fake Indian contact phone number (10-digit mobile starting with 9 or 8).",
+      "files": [
+        "frontend/src/components/checkout/CheckoutModal.tsx",
+        "frontend/src/components/checkout/ShowroomPanel.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-store-showroom-data-name-address-city-phone-mapped-to-car-model-ids-in-the-frontend-content-layer-e-g-a-new-file-frontend-src-content-showrooms-ts-so-each-car-resolves-to-exactly-one-showroom",
+      "featureTitle": "Store showroom data (name, address, city, phone) mapped to car model IDs in the frontend content layer (e.g., a new file frontend/src/content/showrooms.ts) so each car resolves to exactly one showroom.",
+      "files": [
+        "frontend/src/content/showrooms.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
       ],
       "confidence": "high"
     }

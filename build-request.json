@@ -1,41 +1,106 @@
 {
   "kind": "build_request",
-  "title": "Expand carousel to full viewport width and height",
+  "title": "Buy Now checkout flow with showroom details",
   "projectName": "HOOD",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Expand the HeroCarousel component to occupy the full viewport width and height (100vw × 100vh), ensuring it fills the entire screen on a laptop without scrolling. The carousel container, slide wrappers, and any inner content containers should all stretch to fill the full viewport dimensions.",
+      "text": "Add a 'Buy Now' button to each car model card (CarModelCard.tsx) that opens a full checkout modal/drawer when clicked.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-13",
-          "msg-15",
-          "msg-17"
+          "msg-4",
+          "msg-5"
         ],
         "quotes": [
-          "extend the caraosel a bit larger such that it fits my laptop's full screen",
-          "Making the carousel full-screen now — expanding it to fill the full viewport width and height on your laptop!"
+          "show payment window only after clicking buy now option"
         ]
       },
       "acceptanceCriteria": [
-        "The HeroCarousel occupies 100vw × 100vh on page load with no overflow or clipping.",
-        "All three slides stretch to fill the full viewport.",
-        "Navigation arrows and dot indicators remain visible and accessible at full-screen dimensions.",
-        "No vertical or horizontal scrollbars appear due to the carousel itself.",
-        "The carousel looks correct on a standard laptop screen (e.g., 1280×800 to 1920×1080)."
+        "Each CarModelCard displays a clearly visible 'Buy Now' button",
+        "Clicking 'Buy Now' opens the checkout modal for that specific car",
+        "The modal is dismissible (close button / click outside)"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a detailed checkout flow inside the modal with three steps: (1) Select payment type — full price or booking amount (partial deposit); (2) Choose EMI plan if full price is selected (e.g., 6, 12, 24 months with calculated monthly instalment shown in INR); (3) Payment details form with card fields (card number, name on card, expiry, CVV) and a UPI ID field as an alternative. The final step shows a simulated success confirmation screen.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3",
+          "msg-4"
+        ],
+        "quotes": [
+          "checkout flow",
+          "EMI plans, a booking amount (partial payment) vs full price",
+          "card/UPI fields"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can choose between full price payment and a fixed booking amount (e.g., ₹2,00,000 deposit)",
+        "When full price is selected, EMI options (6/12/24 months) are shown with calculated monthly amount in INR",
+        "Payment form accepts card number, cardholder name, expiry date, CVV OR a UPI ID",
+        "Submitting the form shows a success confirmation screen with order summary",
+        "No real payment is processed; all data is mock/simulated"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Display nearest showroom information alongside the checkout flow. Each car model should be assigned a distinct showroom in a different Indian city (e.g., Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad). Each showroom entry must include: showroom name, full address, city, and a plausible but fake Indian contact phone number (10-digit mobile starting with 9 or 8).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2",
+          "msg-4"
+        ],
+        "quotes": [
+          "different locations",
+          "nearest showroom to buy",
+          "a false number to contact",
+          "different showroom locations across India"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each car card's checkout modal shows a dedicated 'Nearest Showroom' panel",
+        "The showroom panel displays name, address, city, and contact number",
+        "Different car models show different city showrooms",
+        "Contact number is a plausible-looking fake Indian mobile number",
+        "Showroom info is visible at the same time as the checkout form (e.g., side-by-side on desktop, stacked on mobile)"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Store showroom data (name, address, city, phone) mapped to car model IDs in the frontend content layer (e.g., a new file frontend/src/content/showrooms.ts) so each car resolves to exactly one showroom.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "different showroom locations across India"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A content file exports a mapping from car model ID to showroom object",
+        "All car models in carModels.ts have a corresponding showroom entry",
+        "No two cars in the same city share a showroom (variety across cities)"
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui.",
-    "Preserve the existing 3-slide content, auto-rotate behavior, navigation arrows, and dot indicators."
+    "No real payment processing — all checkout interactions are purely simulated/mock",
+    "Do not modify files under frontend/src/hooks/ or frontend/src/components/ui/",
+    "Maintain the existing Rolls-Royce-inspired luxury gold/navy theme for luxury car cards",
+    "All prices and amounts must be displayed in INR (₹)"
   ],
   "nonGoals": [
-    "Changing carousel content, images, or slide copy.",
-    "Adding new slides or removing existing ones.",
-    "Modifying backend logic."
+    "Actual payment gateway integration (Stripe, Razorpay, etc.)",
+    "Backend persistence of orders or user data",
+    "Real geolocation or map-based showroom lookup",
+    "User authentication required to purchase",
+    "SMS or email confirmation after checkout"
   ],
   "imageRequirements": {
     "required": [],

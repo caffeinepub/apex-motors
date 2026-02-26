@@ -25,6 +25,13 @@ export default {
                     'Roboto',
                     'sans-serif'
                 ],
+                serif: [
+                    'Cormorant Garamond',
+                    'Georgia',
+                    'Cambria',
+                    'Times New Roman',
+                    'serif'
+                ],
             },
             colors: {
                 border: 'oklch(var(--border))',
@@ -76,6 +83,16 @@ export default {
                     'accent-foreground': 'oklch(var(--sidebar-accent-foreground))',
                     border: 'oklch(var(--sidebar-border))',
                     ring: 'oklch(var(--sidebar-ring))'
+                },
+                luxury: {
+                    bg: 'oklch(var(--luxury-bg))',
+                    'bg-deep': 'oklch(var(--luxury-bg-deep))',
+                    gold: 'oklch(var(--luxury-gold))',
+                    'gold-dim': 'oklch(var(--luxury-gold-dim))',
+                    'gold-muted': 'oklch(var(--luxury-gold-muted))',
+                    border: 'oklch(var(--luxury-border))',
+                    text: 'oklch(var(--luxury-text))',
+                    'text-muted': 'oklch(var(--luxury-text-muted))',
                 }
             },
             borderRadius: {
@@ -86,7 +103,9 @@ export default {
             boxShadow: {
                 xs: '0 1px 2px 0 rgba(0,0,0,0.05)',
                 'premium': '0 20px 60px -15px rgba(0, 0, 0, 0.3)',
-                '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                'luxury': '0 8px 40px -8px oklch(0.78 0.12 85 / 0.18), 0 0 0 1px oklch(0.78 0.12 85 / 0.15)',
+                'luxury-hover': '0 16px 60px -8px oklch(0.78 0.12 85 / 0.30), 0 0 0 1px oklch(0.78 0.12 85 / 0.35)',
             },
             keyframes: {
                 'accordion-down': {

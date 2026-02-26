@@ -1,16 +1,40 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "A futuristic car carousel app with a full-screen viewport carousel.",
+  "summary": "Luxury car showcase app with Rolls-Royce-inspired premium theme. Cars have a 'Buy Now' button that opens a detailed checkout flow (EMI plans, booking amount vs full price, card/UPI fields) along with nearest showroom info (different locations across India with random contact numbers).",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-expand-the-herocarousel-component-to-occupy-the-full-viewport-width-and-height-100vw-100vh-ensuring-it-fills-the-entire-screen-on-a-laptop-without-scrolling-the-carousel-container-slide-wrappers-and-any-inner-content-containers-should-all-stretch-to-fill-the-full-viewport-dimensions",
-      "title": "Expand the HeroCarousel component to occupy the full viewport width and height (100vw × 100vh), ensuring it fills the entire screen on a laptop without scrolling. The carousel container, slide wrappers, and any inner content containers should all stretch to fill the full viewport dimensions.",
+      "id": "feature-add-a-buy-now-button-to-each-car-model-card-carmodelcard-tsx-that-opens-a-full-checkout-modal-drawer-when-clicked",
+      "title": "Add a 'Buy Now' button to each car model card (CarModelCard.tsx) that opens a full checkout modal/drawer when clicked.",
       "reqIds": [
         "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-detailed-checkout-flow-inside-the-modal-with-three-steps-1-select-payment-type-full-price-or-booking-amount-partial-deposit-2-choose-emi-plan-if-full-price-is-selected-e-g-6-12-24-months-with-calculated-monthly-instalment-shown-in-inr-3-payment-details-form-with-card-fields-card-number-name-on-card-expiry-cvv-and-a-upi-id-field-as-an-alternative-the-final-step-shows-a-simulated-success-confirmation-screen",
+      "title": "Implement a detailed checkout flow inside the modal with three steps: (1) Select payment type — full price or booking amount (partial deposit); (2) Choose EMI plan if full price is selected (e.g., 6, 12, 24 months with calculated monthly instalment shown in INR); (3) Payment details form with card fields (card number, name on card, expiry, CVV) and a UPI ID field as an alternative. The final step shows a simulated success confirmation screen.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-nearest-showroom-information-alongside-the-checkout-flow-each-car-model-should-be-assigned-a-distinct-showroom-in-a-different-indian-city-e-g-mumbai-delhi-bangalore-chennai-hyderabad-kolkata-pune-ahmedabad-each-showroom-entry-must-include-showroom-name-full-address-city-and-a-plausible-but-fake-indian-contact-phone-number-10-digit-mobile-starting-with-9-or-8",
+      "title": "Display nearest showroom information alongside the checkout flow. Each car model should be assigned a distinct showroom in a different Indian city (e.g., Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad). Each showroom entry must include: showroom name, full address, city, and a plausible but fake Indian contact phone number (10-digit mobile starting with 9 or 8).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-store-showroom-data-name-address-city-phone-mapped-to-car-model-ids-in-the-frontend-content-layer-e-g-a-new-file-frontend-src-content-showrooms-ts-so-each-car-resolves-to-exactly-one-showroom",
+      "title": "Store showroom data (name, address, city, phone) mapped to car model IDs in the frontend content layer (e.g., a new file frontend/src/content/showrooms.ts) so each car resolves to exactly one showroom.",
+      "reqIds": [
+        "REQ-4"
       ],
       "version": 1
     }
@@ -18,13 +42,19 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Expand carousel to full viewport width and height (full-screen on laptop)",
+      "summary": "Buy Now button on car cards opens detailed checkout flow with EMI plans, booking amount vs full price, and card/UPI payment fields",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Show nearest showroom details (different locations across India) with a random contact number alongside the checkout window",
       "reqIds": [],
       "status": "pending"
     }
   ],
   "gameProjectType": "none",
-  "projectName": "HOOD",
+  "projectName": "Luxury Car Showcase",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }
